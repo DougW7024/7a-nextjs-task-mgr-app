@@ -10,11 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Issue {
+model Task {
   id          Int      @id @default(autoincrement())
-  title       String   @db.VarChar(255)
+  name        String   @db.VarChar(255)
   description String   @db.Text
   status      Status   @default(OPEN)
+  dueDate     DateTime @default(now())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

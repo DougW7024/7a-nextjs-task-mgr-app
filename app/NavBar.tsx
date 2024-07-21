@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { AiFillBug } from "react-icons/ai";
+import { HiCalendar } from "react-icons/hi";
 import classnames from "classnames";
 
 const NavBar = () => {
@@ -11,13 +11,13 @@ const NavBar = () => {
 
   const links = [
     { label: "Dashboard", href: "/" },
-    { label: "Issues", href: "/issues" },
+    // { label: "Tasks", href: "/tasks" },
   ];
 
   return (
     <nav className="flex space-x-6 border-b mb-5 px-5 h-14 items-center">
       <Link href="/">
-        <AiFillBug />
+        <HiCalendar className="flex size-8" />
       </Link>
       <ul className="flex space-x-6">
         {links.map((link) => (
@@ -25,7 +25,7 @@ const NavBar = () => {
             key={link.href}
             className={classnames({
               "text-zinc-900": link.href === currrentPath,
-              "text-zinc-500": link.href !== currrentPath,
+              "text-zinc-400": link.href !== currrentPath,
               "hover:text-zinc-800 transition-colors": true,
             })}
             href={link.href}
